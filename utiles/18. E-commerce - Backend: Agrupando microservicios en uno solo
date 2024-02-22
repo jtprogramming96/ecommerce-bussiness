@@ -1,0 +1,5 @@
+Por motivos de tiempo, se hacen unen los ms de lb4 en uno solo.
+
+Relaciones:
+una producto "hasMany" imagenes
+una imagen "belongsTo" producto

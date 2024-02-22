@@ -1,0 +1,10 @@
+token:
+my-token
+The token will expire on Fri, May 17 2024
+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
+
+template:
+git remote set-url origin https://<token>@github.com/<username>/<repo>
+
+use:
+git remote set-url origin https://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@github.com/jtprogramming96/ecommerce-ms-productos

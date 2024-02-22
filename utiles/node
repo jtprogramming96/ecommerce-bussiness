@@ -1,0 +1,7 @@
+eliminar node:
+	sudo apt-get purge --auto-remove nodejs
+instalar v18:
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+(fuente: https://github.com/nodesource/distributions?tab=readme-ov-file#installation-instructions)
+

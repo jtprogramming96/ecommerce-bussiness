@@ -1,0 +1,3 @@
+Lanzar XAMPP (una vez instalado):
+cd /opt/lampp	# me ubico donde está instalado
+sudo ./manager-linux-x64.run	# lo ejecuto

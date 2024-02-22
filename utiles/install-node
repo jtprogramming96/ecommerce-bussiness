@@ -1,0 +1,15 @@
+instalar node.js:
+prerrequisito: tener instalado curl:
+	debe hacerse como sudo:
+		desde consola teclear "sudo" y poner contraseña
+		una vez en sudo, instalar curl, x ej: snap install curl  # version 8.1.2
+
+una vez instalado curl, instalar node.js: ejecutar los siguientes comandos en el orden indicado:
+1-curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+2-sudo apt install nodejs -y
+3-sudo apt update
+4-node --version: muestra la versión de node instalada
+opcionales:
+5-node	:ejecuta node
+5-console.log("Welcome to Node.js!!")	: mostrar un mensaje desde node
+7-.exit o ctrl+d para salir de node

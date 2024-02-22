@@ -1,0 +1,14 @@
+1 CREAR DATASOURCE	(lb4 datasource)
+2 CREAR MODELOS		(lb4 model)
+3 CREAR REPOSITORIOS	(lb4 repository)
+4 CREAR RELACIONES	(lb4 relation)
+	- lb4 se encarga de crear sus controladores, por lo que nos ahorramos esa tarea en el paso 5
+5 CREAR CONTROLADORES	(lb4 controller)
+	- En el caso del microservicio de clientes: Solo debo crear el controlador de la clase Cliente.
+	Ya que los controladores de Direccion y UsuarioCliente se crearon en el paso 4 automaticamente. Como
+	el Cliente tiene una Direccion (relación hasOne) y a un Cliente le puede pertenecer (relación belongsTo) un
+	UsuarioCliente, lb4 crea los controladores de las clases que son dependientes de otras (en este caso,
+	Direccion y UsuarioCliente dependen del id de la clase Cliente).
+	Extra: Pueden observarse en los controladores creados automáticamente, cómo es el código generado para crear, modificar,
+	buscar instancias de las clases Direccion y UsuarioCliente (el formato de nombre de los controladores es:
+	"nombreModeloOrigen_nombreModeloDestino.controller.ts").
