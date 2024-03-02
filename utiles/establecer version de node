@@ -1,3 +1,0 @@
-establecer version de node:
-export PATH=/usr/local/lib/nodejs/node-v20.11.1-linux-x64/bin:$PATH
-. ~/.profile

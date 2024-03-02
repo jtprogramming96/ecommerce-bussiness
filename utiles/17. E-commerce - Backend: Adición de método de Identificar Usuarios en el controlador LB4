@@ -1,8 +1,0 @@
-Se agrega al crud (controlador de usuarios), la funcionalidad "identificarUsuario", el cual solicita usuario(correo) y la clave.
-- Para ello se crea el modelo (NO ENTIDAD, como hemos hecho hasta el momento) Credenciales, el cual tiene 2 atributos: usuario y clave.
-- Entonces, se agrega un nuevo post al final del controlador de usuarios, pero con la ruta así: @post('/identificar-usuarios'), y se
-implementa dicho post( ver el código).
-	
-NOTA: Credenciales es un modelo y no una entidad, porque jusutamente NO se almacena en la base de datos, los datos del usuario ya
-están en la bd. Las credenciales manejan datos locales que no son necesarios estar persistiendo cada vez que el usuario se logea,
-sino que simplemente es un paso intermedio de seguridad para el logeo del usuario.

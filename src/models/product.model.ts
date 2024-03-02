@@ -1,8 +1,8 @@
-import {Entity, model, property, hasMany, belongsTo} from '@loopback/repository';
-import {Category} from './category.model';
-import {ProductCategory} from './product-category.model';
-import {Image} from './image.model';
+import {Entity, belongsTo, hasMany, model, property} from '@loopback/repository';
 import {Brand} from './brand.model';
+import {Category} from './category.model';
+import {Image} from './image.model';
+import {ProductCategory} from './product-category.model';
 
 @model()
 export class Product extends Entity {
@@ -44,13 +44,13 @@ export class Product extends Entity {
   discount?: number;
 
   @hasMany(() => Category, {through: {model: () => ProductCategory}})
-  categories: Category[];
+  categories: Category[]; // a través de este atributo, se relaciona con Category
 
   @hasMany(() => Image)
-  images: Image[];
+  images: Image[];    // a través de este atributo, se relaciona con Image
 
   @belongsTo(() => Brand)
-  brandId: number;
+  brandId: number;  // pertenece a quiere decir "necesariamente pertenece a"
 
   constructor(data?: Partial<Product>) {
     super(data);
