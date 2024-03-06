@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -7,24 +8,25 @@ import {
   Where,
 } from '@loopback/repository';
 import {
-  post,
-  param,
+  del,
   get,
   getModelSchemaRef,
+  param,
   patch,
+  post,
   put,
-  del,
   requestBody,
   response,
 } from '@loopback/rest';
 import {Brand} from '../models';
 import {BrandRepository} from '../repositories';
 
+@authenticate('admin')
 export class BrandController {
   constructor(
     @repository(BrandRepository)
-    public brandRepository : BrandRepository,
-  ) {}
+    public brandRepository: BrandRepository,
+  ) { }
 
   @post('/brands')
   @response(200, {
@@ -58,6 +60,7 @@ export class BrandController {
     return this.brandRepository.count(where);
   }
 
+  @authenticate.skip()
   @get('/brands')
   @response(200, {
     description: 'Array of Brand model instances',
@@ -95,6 +98,7 @@ export class BrandController {
     return this.brandRepository.updateAll(brand, where);
   }
 
+  @authenticate.skip()
   @get('/brands/{id}')
   @response(200, {
     description: 'Brand model instance',

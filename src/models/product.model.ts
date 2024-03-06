@@ -43,6 +43,12 @@ export class Product extends Entity {
   })
   discount?: number;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  main_image: string;
+
   @hasMany(() => Category, {through: {model: () => ProductCategory}})
   categories: Category[]; // a través de este atributo, se relaciona con Category
 
