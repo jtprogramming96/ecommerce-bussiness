@@ -29,40 +29,6 @@ export class CargaArchivosController {
    * @param response
    * @param request
    */
-  @post('/CargarImagenPrincipal', {
-    responses: {
-      200: {
-        content: {
-          'application/json': {
-            schema: {
-              type: 'object',
-            },
-          },
-        },
-        description: 'Función de carga de la imagen de un producto.',
-      },
-    },
-  })
-  async cargarImagenPrincipalDelProducto(
-    @inject(RestBindings.Http.RESPONSE) response: Response,
-    @requestBody.file() request: Request
-  ): Promise<object | false> {
-    const rutaImagenProducto = path.join(__dirname, llaves.carpetaImagenProducto);
-    let res = await this.StoreFileToPath(rutaImagenProducto, llaves.nombreCampoImagenProducto, request, response, llaves.extensionesPermitidasIMG);
-    if (res) {
-      const nombre_archivo = response.req?.file?.filename;
-      if (nombre_archivo) {
-        return {filename: nombre_archivo};
-      }
-    }
-    return res;
-  }
-
-  /**
-   *
-   * @param response
-   * @param request
-   */
   @post('/CargarImagenProducto/{id_producto}', {
     responses: {
       200: {
@@ -91,6 +57,40 @@ export class CargaArchivosController {
         img.name = nombre_archivo;
         img.productId = id_producto;
         await this.imageRepository.save(img);
+        return {filename: nombre_archivo};
+      }
+    }
+    return res;
+  }
+
+  /**
+     *
+     * @param response
+     * @param request
+     */
+  @post('/CargarImagenPrincipalProducto', {
+    responses: {
+      200: {
+        content: {
+          'application/json': {
+            schema: {
+              type: 'object',
+            },
+          },
+        },
+        description: 'Función de carga de la imagen de un producto.',
+      },
+    },
+  })
+  async cargarImagenPrincipalDelProducto(
+    @inject(RestBindings.Http.RESPONSE) response: Response,
+    @requestBody.file() request: Request
+  ): Promise<object | false> {
+    const rutaImagenProducto = path.join(__dirname, llaves.carpetaImagenProducto);
+    let res = await this.StoreFileToPath(rutaImagenProducto, llaves.nombreCampoImagenProducto, request, response, llaves.extensionesPermitidasIMG);
+    if (res) {
+      const nombre_archivo = response.req?.file?.filename;
+      if (nombre_archivo) {
         return {filename: nombre_archivo};
       }
     }
